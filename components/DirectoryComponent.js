@@ -7,15 +7,16 @@ function Directory(props) {
     return (
       <ListItem
         title={item.name}
-        subtitle={item.description}
-        leftAvatar={{ source: require("../shared/images/beanLatte.jpg") }}
+        subtitle={item.address}
+        onPress={() => props.onPress(item.id)}
+        leftAvatar={{ source: require("../shared/images/beansClose.jpeg") }}
       />
     );
   };
 
   return (
     <FlatList
-      data={props.location}
+      data={props.locations}
       renderItem={renderDirectoryItem}
       keyExtractor={(item) => item.id.toString()}
     />
