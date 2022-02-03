@@ -1,36 +1,53 @@
 import React, { Component } from "react";
 import Directory from "./DirectoryComponent";
 import LocationInfo from "./LocationInfoComponents";
-import { View } from "react-native";
-import { LOCATIONS } from "../shared/locations";
+import { Platform, View } from "react-native";
+import { createStackNavigator } from "react-navigation-stack";
+import Constants from "expo-constants";
+// import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { createAppContainer } from "react-navigation";
 
+const DirectoryNavigator = createStackNavigator(
+  {
+    Directory: { screen: Directory },
+    LocationInfo: { screen: LocationInfo },
+  },
+  {
+    initialRouteName: "Directory",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#331810",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
+const AppNavigator = createAppContainer(DirectoryNavigator);
+
+// const Tab = createMaterialBottomTabNavigator();
+
+// function BottomTabs() {
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen name="Home" component={Home} />
+//       <Tab.Screen name="Locations" component={LocationInfo} />
+//     </Tab.Navigator>
+//   );
+// }
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      locations: LOCATIONS,
-      selectedLocation: null,
-    };
-  }
-
-  onLocationSelect(locationId) {
-    this.setState({ selectedLocation: locationId });
-  }
-
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Directory
-          locations={this.state.locations}
-          onPress={(locationId) => this.onLocationSelect(locationId)}
-        />
-        <LocationInfo
-          location={
-            this.state.locations.filter(
-              (location) => location.id === this.state.selectedLocation
-            )[0]
-          }
-        />
+      <View
+        style={{
+          flex: 1,
+          paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
+        }}
+      >
+        <AppNavigator />
       </View>
     );
   }
