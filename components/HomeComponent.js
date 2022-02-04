@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 class Home extends Component {
   static navigationOptions = {
@@ -7,7 +7,11 @@ class Home extends Component {
   };
 
   render() {
-    return <Text>Hello World</Text>;
+    return (
+      <View>
+        <Text>Home Component</Text>
+      </View>
+    );
   }
 }
 
