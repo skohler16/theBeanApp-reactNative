@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
 import { LOCATIONS } from "../shared/locations";
+import MapView from "react-native-maps";
 
 function RenderLocation({ location }) {
   if (location) {
@@ -14,6 +15,7 @@ function RenderLocation({ location }) {
         <Text style={{ margin: 10 }}>{location.description}</Text>
         <Text style={{ margin: 10 }}>{location.hours}</Text>
         <Text style={{ margin: 10 }}>{location.address}</Text>
+        <MapView />
       </Card>
     );
   }
