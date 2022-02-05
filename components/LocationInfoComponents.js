@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
 import { LOCATIONS } from "../shared/locations";
-import MapView from "react-native-maps";
 
 function RenderLocation({ location }) {
   if (location) {
