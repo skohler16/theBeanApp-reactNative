@@ -6,15 +6,16 @@ import { Platform, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function StackedLocation() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Directory" component={Directory} />
+      <Stack.Screen name="Locations" component={LocationInfo} />
     </Stack.Navigator>
   );
 }
@@ -23,7 +24,7 @@ function BottomTabs() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Locations" component={StackedLocation} />
+        <Tab.Screen name="Visit Us" component={StackedLocation} />
       </Tab.Navigator>
     </NavigationContainer>
   );
