@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView } from "react-native-gesture-handler";
+import { Text, Card } from "react-native";
 
 class Contact extends Component {
   static navigationOptions = {

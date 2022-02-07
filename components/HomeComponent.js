@@ -30,7 +30,9 @@ class Home extends Component {
   render() {
     return (
       <ScrollView>
-        <Text style={{ textAlign: "center" }}>Welcome to the Bean Cafe!</Text>
+        <Text style={{ textAlign: "center", fontSize: 20 }}>
+          Welcome to the Bean Cafe!
+        </Text>
         <RenderItem
           item={this.state.lattes.filter((latte) => latte.featured)[0]}
         />

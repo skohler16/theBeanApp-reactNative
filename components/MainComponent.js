@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Home from "./HomeComponent";
 import Directory from "./DirectoryComponent";
+import About from "./AboutComponent";
+import Contact from "./ContactComponent";
 import LocationInfo from "./LocationInfoComponents";
 import { Platform, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,6 +27,8 @@ function BottomTabs() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Visit Us" component={StackedLocation} />
+        <Tab.Screen name="About Us" component={About} />
+        <Tab.Screen name="Contact" component={Contact} />
       </Tab.Navigator>
     </NavigationContainer>
   );
