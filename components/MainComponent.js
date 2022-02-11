@@ -16,15 +16,7 @@ const Stack = createNativeStackNavigator();
 function StackedLocation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Directory"
-        component={Directory}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
-        }}
-      />
+      <Stack.Screen name="Directory" component={Directory} />
       <Stack.Screen name="Locations" component={LocationInfo} />
     </Stack.Navigator>
   );
